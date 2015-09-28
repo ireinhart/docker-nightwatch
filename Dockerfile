@@ -12,3 +12,4 @@ RUN npm install -g nightwatch && rm -rf \
 
 RUN mkdir /app
 WORKDIR /app
+VOLUME ["/app"]
