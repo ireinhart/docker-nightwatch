@@ -1,4 +1,4 @@
-FROM node
+FROM ireinhart/node-dev
 
 MAINTAINER Ingo Reinhart <ingo.reinhart@gmail.com>
 
@@ -6,9 +6,10 @@ USER root
 
 RUN apt-get update && apt-get -y upgrade && apt-get -y --PURGE autoremove && apt-get -y install netcat
 
-RUN npm install -g nightwatch && rm -rf \
- /tmp/* \
- /root/.npm
+ADD . /install
+WORKDIR /install
+RUN npm install -g $(cat packages) && rm -rf npm_cache /tmp/*
+ENV NODE_PATH /usr/local/lib/node_modules/
 
 RUN mkdir /app
 WORKDIR /app
