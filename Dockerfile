@@ -1,4 +1,4 @@
-FROM ireinhart/node-dev
+FROM node:slim
 
 MAINTAINER Ingo Reinhart <ingo.reinhart@gmail.com>
 
