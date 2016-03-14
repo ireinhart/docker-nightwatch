@@ -4,7 +4,7 @@ MAINTAINER Ingo Reinhart <ingo.reinhart@gmail.com>
 
 USER root
 
-RUN apt-get update && apt-get -y upgrade && apt-get -y --PURGE autoremove && apt-get -y install netcat
+RUN apt-get update && apt-get -y upgrade && apt-get -y install netcat && apt-get -y --PURGE autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD . /install
 WORKDIR /install
